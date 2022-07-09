@@ -1,0 +1,32 @@
+{
+  "./.projections.json": { "type": "dit" },
+
+  "README.md": {
+    "type": "doc"
+  },
+
+  "CMakeLists.txt": {
+    "type": "ck"
+  },
+
+  "Makefile": {
+    "type": "mk"
+  },
+
+  "main.cpp": {
+    "type": "main"
+  },
+
+  "*.cpp": {
+    "type": "s",
+    "make": "make %<",
+    "dispatch": "./%<",
+    "alternate": "inc/{}.h"
+  },
+
+  "inc/*.h": {
+    "type": "h",
+    "skeleton": "cppheader",
+    "alternate": "{}.cpp"
+  }
+}

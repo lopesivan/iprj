@@ -1,0 +1,36 @@
+b.module.require unittest
+
+# test:
+# ➡ iprj completions
+function b.test.iprj_completions () {
+
+  local cmd="$(
+    echo '--help --version --usage' \
+          '-a --add'                \
+          '-l --list'               \
+          '-n --name' |
+
+    sed 's/ /\n/g' )"
+
+  b.unittest.assert_equal \
+    "${cmd}" "$(iprj completions)"
+}
+
+# test:
+# ➡ iprj completions --help
+function b.test.iprj_long_option_help () {
+  local jsonfile="$(dirname $(readlink -f $(which iprj)))/etc/iprjdoc.json"
+
+  test -n "$jsonfile"           # se a variavel nao e nula
+  b.unittest.assert_success $?  # entao sucesso
+
+  local cmd="iprj completions --help"
+
+  local description=$(cat $jsonfile |
+    jq --raw-output '.iprj[] | select(.command == "completions") | .description'
+  )
+
+  b.unittest.assert_equal \
+    "$description" "$(${cmd})"
+}
+

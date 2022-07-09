@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+path=$PWD
+(
+  cd $(dirname $(readlink -f $(which iprj)))
+  LOCALPATH=$path bang run iprj $@
+)
+exit 0

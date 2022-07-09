@@ -1,0 +1,76 @@
+{
+  "id": {
+    "version": "2.1",
+    "name": "iprj"
+  },
+  "iprj": [
+    {
+      "command": "ls",
+      "description": "lista tasks"
+    },
+    {
+      "command": "android",
+      "description": "Cria projeto ANDROID"
+    },
+    {
+      "command": "arduino",
+      "description": "Cria projeto ARDUINO"
+    },
+    {
+      "command": "latex",
+      "description": "Cria projeto LATEX"
+    },
+    {
+      "command": "python",
+      "description": "Cria projeto PYTHON"
+    },
+    {
+      "command": "java",
+      "description": "Cria projeto JAVA"
+    },
+    {
+      "command": "ck",
+      "description": "Cria projeto Chuck"
+    },
+    {
+      "command": "ignore",
+      "description": "Cria .gitignore baseado em tags"
+    },
+    {
+      "command": "autotools",
+      "description": "Cria projeto AUTOTOOLS"
+    },
+    {
+      "command": "makefile",
+      "description": "Cria projeto MAKEFILE"
+    },
+    {
+      "command": "cmake",
+      "description": "Cria projeto CMake"
+    },
+    {
+      "command": "gradle",
+      "description": "Cria projeto Gradle"
+    },
+    {
+      "command": "commands",
+      "description": "lista todas as tasks/comandos"
+    },
+    {
+      "command": "completions",
+      "description": "lista todas as opcoes"
+    },
+    {
+      "command": "new",
+      "description": "cria"
+    },
+    {
+      "command": "update",
+      "description": "update"
+    },
+    {
+      "command": "maven",
+      "description": "Comando maven"
+    }
+  ]
+}

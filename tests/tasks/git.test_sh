@@ -1,0 +1,56 @@
+b.module.require unittest
+
+# test:
+# ➡ iprj git --help
+function b.test.iprj_git_long_option_help () {
+
+  local f=$(dirname $(readlink -f $(which iprj)))/tests/outfiles/iprj_git__help.out
+
+  local output="$(cat $f)"
+
+  local cmd="iprj git --help"
+
+  b.unittest.assert_equal \
+    "$output" "$(${cmd})"
+}
+
+# test:
+# ➡ iprj git --debug
+function b.test.iprj_git_long_option_debug () {
+
+  local f=$(dirname $(readlink -f $(which iprj)))/tests/outfiles/iprj_git__debug.out
+
+  local output="$(cat $f)"
+
+  local cmd="iprj git --debug"
+
+  b.unittest.assert_equal \
+    "$output" "$(${cmd})"
+}
+
+
+# test:
+# ➡ iprj git --set-ssh-git
+function b.test.iprj_git_long_option_set_ssh_git () {
+
+  local tempdir=$(mktemp -d -t testing.XXXX)
+  local repname=test-repositorio
+
+  cd $tempdir
+  git novo-repositorio-local $repname
+  cd ${tempdir}/${repname}
+
+  local output="\
+git remote -v
+git remote set-url origin git+ssh://git@github.com/lopesivan/${repname}.git
+git remote -v"
+
+  local cmd="iprj git --set-ssh-git"
+
+  b.unittest.assert_equal \
+    "$output" "$(${cmd})"
+
+  rm -rf ${HOME}/git/${repname}.git
+  rm -rf $tempdir
+
+}

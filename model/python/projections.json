@@ -1,0 +1,15 @@
+{
+    "./.projections.json": { "type": "dit" },
+
+    "*.yaml": {
+      "type": "yaml",
+      "make": "python parser.py {file|basename}"
+    },
+
+    "*.py": {
+      "type": "py",
+      "make": "python {file|basename} 1.yaml",
+      "start": "ptpython --vi --interactive={file|basename} 1.yaml",
+      "dispatch": "bpython -i {file|basename} 1.yaml"
+    }
+}

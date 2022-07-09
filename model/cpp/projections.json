@@ -1,0 +1,33 @@
+{
+  "./.projections.json": { "type": "dit" },
+  "./.vimspector.json": { "type": "debug" },
+
+  "README.md": {
+    "type": "doc"
+  },
+
+  "CMakeLists.txt": {
+    "type": "cm"
+  },
+
+  "Makefile": {
+    "type": "mk"
+  },
+
+  "main.cpp": {
+    "type": "main"
+  },
+
+  "*.cpp": {
+    "type": "s",
+    "make": "make %<",
+    "dispatch": "./%<",
+    "alternate": "inc/{}.h"
+  },
+
+  "inc/*.h": {
+    "type": "h",
+    "skeleton": "cppheader",
+    "alternate": "{}.cpp"
+  }
+}

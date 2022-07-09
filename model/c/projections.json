@@ -1,0 +1,33 @@
+{
+  "./.projections.json": { "type": "dit" },
+
+  "README.md": {
+    "type": "doc"
+  },
+
+  "CMakeLists.txt": {
+    "type": "ck"
+  },
+
+  "Makefile": {
+    "type": "mk"
+  },
+
+  "main.c": {
+    "type": "main"
+  },
+
+  "*.c": {
+    "type": "s",
+    "make": "make %<",
+    "dispatch": "./%<",
+    "alternate": "inc/{}.h"
+  },
+
+  "inc/*.h": {
+    "type": "h",
+    "skeleton": "cansiheader",
+    "alternate": "{}.c",
+    "dispatch": "cproto -f2 {}.c 2> /dev/null"
+  }
+}

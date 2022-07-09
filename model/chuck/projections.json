@@ -1,0 +1,12 @@
+{
+    "./.projections.json": { "type": "dit" },
+
+    "*.ck": {
+        "type": "chuck",
+        // paste: AD
+        "template": ["lucas arte","sssssssssssssssss"],
+        "make": "chuck --add {file}",
+        "start": "chuck --loop",
+        "dispatch": "pkill chuck"
+    }
+}
