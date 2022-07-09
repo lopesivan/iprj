@@ -1,7 +1,7 @@
 # tasks/init.sh
 function btask.init.run() {
 
-    local file="$(dirname $(readlink -f $(which iprj)))/etc/completion.bash"
+    local file="$(dirname $(readlink -f $(which iprj)))/etc/iprj.completion.bash"
 
     if [ -n "$file" ]; then
         if [ -e "$file" ]; then
