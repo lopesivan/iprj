@@ -1,11 +1,3 @@
-##############################################################################
-##############################################################################
-##############################################################################
-
-# ----------------------------------------------------------------------------
-# Run!
-# bash completion for iprj
-
 _iprj()
 {
     local cur prev
@@ -139,12 +131,3 @@ _iprj()
     return 0
 } &&
 complete -F _iprj $nospace $filenames iprj
-
-# Local variables:
-# mode: shell-script
-# sh-basic-offset: 4
-# sh-indent-comment: t
-# indent-tabs-mode: nil
-# End:
-# ex: ts=4 sw=4 et filetype=sh
-
