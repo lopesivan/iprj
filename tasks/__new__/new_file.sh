@@ -57,18 +57,16 @@ EOF
     {
 
         [ $1 ] && {
-            opt="-p -y init.yml $1 $2"
+            opt="-y init.yml $1 $2"
         }
-
-        $cmd $opt
-
+        echo $cmd ${opt--y init.yml}
+        $cmd ${opt--y init.yml}
     }
 
 ##############################################################################
 
     if [ "$1" == '--help' ]; then
         _usage
-        echo kkkk
         return $( b.get "iprj.config.help_message" )
     fi
 
@@ -82,8 +80,8 @@ EOF
         return 0
     fi
 
-    cd $LOCALPATH
 
+    cd $LOCALPATH
     DIR=${template}/w/v
     APP=${DIR}/app.py
     cmd="python ${APP}"
