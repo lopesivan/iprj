@@ -24,5 +24,3 @@ test:
 test-clean:
 	@-rm tests/*.out
 
-brew:
-	brew reinstall $(PROJECT)
