@@ -76,7 +76,7 @@ EOF
 
         DIR=${template}/w/v
         APP=${DIR}/app.py
-        python ${APP}
+        python ${APP} -y init.yml kiko
 
         return 0
     fi
