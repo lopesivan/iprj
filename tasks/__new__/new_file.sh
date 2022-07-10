@@ -71,10 +71,12 @@ EOF
     fi
 
     if [ "$1" == '--list' ]; then
-        f=$(_list)
 
-        cd $LOCALPATH
-        test -z $f || { echo NEW:$f; > $f; }
+        template="$(brew --prefix)/opt/template-code/w-new-file"
+
+        DIR=${template}/w/v
+        APP=${DIR}/app.py
+        python ${APP}
 
         return 0
     fi
