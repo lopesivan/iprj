@@ -13,14 +13,14 @@ options
     save  - Salva o processamento em arquivo
 
 examples:
-    iprj  new file helloworld c
-    iprj  new file helloworld cpp
-    iprj  new file helloworld tex
-    iprj  new file tictac c
-    iprj  new file tictac cpp
-    iprj  new file save tictac cpp
-    iprj  new file save helloworld tex
-    iprj  new file save helloworld c
+    iprj new file helloworld c
+    iprj new file helloworld cpp
+    iprj new file helloworld tex
+    iprj new file tictac c
+    iprj new file tictac cpp
+    iprj new file save tictac cpp
+    iprj new file save helloworld tex
+    iprj new file save helloworld c
 
 EOF
     }
@@ -46,7 +46,7 @@ EOF
         tput setaf 2
         echo "$template_name"
         tput sgr0
-        echo "cmd:     { 'name': helloworld, 'dir': .  }" >  $template_name
+        echo "cmd: { 'name': helloworld, 'dir': . }" >  $template_name
     }
 
     # imprime na tela os arquivos gerados se existir o arquivo de configuracao
@@ -62,27 +62,11 @@ EOF
 
     }
 
-    _list()
-    {
-        cat<<EOF| fzf
-        CMakeLists.txt
-        Dockerfile
-        Makefile
-        pubspec.yaml
-        tsconfig.json
-        Cargo.toml
-        .projections.json
-        .gitignore
-        .local.vimrc
-        .ccls
-        .ccls-root
-EOF
-    }
-
 ##############################################################################
 
     if [ "$1" == '--help' ]; then
         _usage
+        echo kkkk
         return $( b.get "iprj.config.help_message" )
     fi
 
@@ -97,11 +81,9 @@ EOF
 
     cd $LOCALPATH
 
-    declare -A templates
-    templates[1]="$(brew --prefix)/opt/template-code/w-new-file"
+    template="$(brew --prefix)/opt/template-code/w-new-file"
 
-    number=1
-    DIR=${templates[$number]}/w/v
+    DIR=${template}/w/v
     APP=${DIR}/app.py
     cmd="python ${APP}"
 
