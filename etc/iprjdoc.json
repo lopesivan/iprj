@@ -62,7 +62,7 @@
     },
     {
       "command": "new",
-      "description": "cria"
+      "description": "task de criação"
     },
     {
       "command": "update",
