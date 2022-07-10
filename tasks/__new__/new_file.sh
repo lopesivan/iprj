@@ -76,6 +76,7 @@ EOF
 
         DIR=${template}/w/v
         APP=${DIR}/app.py
+        cd $LOCALPATH
         python ${APP} -y init.yml kiko
 
         return 0
