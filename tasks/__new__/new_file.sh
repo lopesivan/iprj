@@ -59,7 +59,6 @@ EOF
         [ $1 ] && {
             opt="-y init.yml $1 $2"
         }
-        echo $cmd ${opt--y init.yml}
         $cmd ${opt--y init.yml}
     }
 
