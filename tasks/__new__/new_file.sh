@@ -6,22 +6,21 @@ function btask.new_file.run() {
     {
     #'<,'>!fmt -w 60   formatador
     cat <<-EOF
-    Usage: iprj new makefile [options] [word]...
+Usage: iprj new makefile [options] [word]...
 
-    options
-        yml   - Gera YML de inicializaçao do template CHEETAH
-        save  - Salva o processamento em arquivo
+options
+    yml   - Gera YML de inicializaçao do template CHEETAH
+    save  - Salva o processamento em arquivo
 
-    examples:
-        iprj  new file helloworld c
-        iprj  new file helloworld cpp
-        iprj  new file helloworld tex
-        iprj  new file tictac c
-        iprj  new file tictac cpp
-        iprj  new file save tictac cpp
-        iprj  new file save helloworld tex
-        iprj  new file save helloworld c
-
+examples:
+    iprj  new file helloworld c
+    iprj  new file helloworld cpp
+    iprj  new file helloworld tex
+    iprj  new file tictac c
+    iprj  new file tictac cpp
+    iprj  new file save tictac cpp
+    iprj  new file save helloworld tex
+    iprj  new file save helloworld c
 
 EOF
     }
@@ -99,7 +98,7 @@ EOF
     cd $LOCALPATH
 
     declare -A templates
-    templates[1]="${HOME}/developer/template-code/w-new-file"
+    templates[1]="$(brew --prefix)/opt/template-code/w-new-file"
 
     number=1
     DIR=${templates[$number]}/w/v
