@@ -1,6 +1,8 @@
 # tasks/new_file.sh
 function btask.new_file.run() {
 
+    local template="$(brew --prefix)/opt/template-code/w-new-file"
+
     # Descrição de como usar `new_c'
     _usage()
     {
@@ -72,8 +74,6 @@ EOF
 
     if [ "$1" == '--list' ]; then
 
-        template="$(brew --prefix)/opt/template-code/w-new-file"
-
         DIR=${template}/w/v
         APP=${DIR}/app.py
         cd $LOCALPATH
@@ -83,8 +83,6 @@ EOF
     fi
 
     cd $LOCALPATH
-
-    template="$(brew --prefix)/opt/template-code/w-new-file"
 
     DIR=${template}/w/v
     APP=${DIR}/app.py
