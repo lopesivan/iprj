@@ -1,85 +1,85 @@
-# tasks/file.sh
+# tasks/new_file.sh
 function btask.new_file.run() {
 
-# Descrição de como usar `new_c'
-_usage()
-{
-#'<,'>!fmt -w 60   formatador
-cat <<-EOF
-Usage: iprj new makefile [options] [word]...
+    # Descrição de como usar `new_c'
+    _usage()
+    {
+    #'<,'>!fmt -w 60   formatador
+    cat <<-EOF
+    Usage: iprj new makefile [options] [word]...
 
-options
-    yml   - Gera YML de inicializaçao do template CHEETAH
-    save  - Salva o processamento em arquivo
+    options
+        yml   - Gera YML de inicializaçao do template CHEETAH
+        save  - Salva o processamento em arquivo
 
-examples:
-    iprj  new file helloworld c
-    iprj  new file helloworld cpp
-    iprj  new file helloworld tex
-    iprj  new file tictac c
-    iprj  new file tictac cpp
-    iprj  new file save tictac cpp
-    iprj  new file save helloworld tex
-    iprj  new file save helloworld c
+    examples:
+        iprj  new file helloworld c
+        iprj  new file helloworld cpp
+        iprj  new file helloworld tex
+        iprj  new file tictac c
+        iprj  new file tictac cpp
+        iprj  new file save tictac cpp
+        iprj  new file save helloworld tex
+        iprj  new file save helloworld c
 
 
 EOF
-}
-
-# Salva parseando o arquivo `yml' presente no diretório corrente.
-_save()
-{
-    [ "$1" ] && {
-        opt="-s -y init.yml $1 $2"
     }
 
-    $cmd $opt
-}
+    # Salva parseando o arquivo `yml' presente no diretório corrente.
+    _save()
+    {
+        [ "$1" ] && {
+            opt="-s -y init.yml $1 $2"
+        }
 
-# Gera o arquivo template `yml' com os inputs necessários ao template CHEETAH.
-_yml()
-{
-    local template_file="init.yml"
-    local template_name="$template_file"
-
-    tput bold tput setb 3
-    echo -n "-> "
-    tput setaf 2
-    echo "$template_name"
-    tput sgr0
-    echo "cmd:     { 'name': helloworld, 'dir': .  }" >  $template_name
-}
-
-# imprime na tela os arquivos gerados se existir o arquivo de configuracao
-# 'init.yml'
-_parser()
-{
-
-    [ $1 ] && {
-        opt="-p -y init.yml $1 $2"
+        $cmd $opt
     }
 
-    $cmd $opt
+    # Gera o arquivo template `yml' com os inputs necessários ao template CHEETAH.
+    _yml()
+    {
+        local template_file="init.yml"
+        local template_name="$template_file"
 
-}
+        tput bold tput setb 3
+        echo -n "-> "
+        tput setaf 2
+        echo "$template_name"
+        tput sgr0
+        echo "cmd:     { 'name': helloworld, 'dir': .  }" >  $template_name
+    }
 
-_list()
-{
-    cat<<EOF| fzf
-    CMakeLists.txt
-    Dockerfile
-    Makefile
-    pubspec.yaml
-    tsconfig.json
-    Cargo.toml
-    .projections.json
-    .gitignore
-    .local.vimrc
-    .ccls
-    .ccls-root
-EOF
+    # imprime na tela os arquivos gerados se existir o arquivo de configuracao
+    # 'init.yml'
+    _parser()
+    {
 
-}
+        [ $1 ] && {
+            opt="-p -y init.yml $1 $2"
+        }
+
+        $cmd $opt
+
+    }
+
+    _list()
+    {
+        cat<<EOF| fzf
+        CMakeLists.txt
+        Dockerfile
+        Makefile
+        pubspec.yaml
+        tsconfig.json
+        Cargo.toml
+        .projections.json
+        .gitignore
+        .local.vimrc
+        .ccls
+        .ccls-root
+    EOF
+
+    }
 
 ##############################################################################
 
