@@ -20,7 +20,7 @@ function btask.registry.run() {
 	local catalogo=$(
 		curl -qk https://dev:5000/v2/_catalog |
 			jq .repositories[] |
-			fzf-tmux -l 100% --multi --reverse --query="$1" --select-1 --exit-0
+			fzf-tmux
 	)
 
 	if [[ ! -z $catalogo ]]; then
